@@ -7,6 +7,7 @@
     <script>window.$ = window.jQuery = require('jquery');</script>
     <script src="./js/formData.js"></script>
     <script src="./js/searchUser.js"></script>
+    <script src="./js/loadHeros.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -16,7 +17,14 @@
 
   <body>
     <div class="container" id="app">
-      <div class="page center" id='page'>
+      <div class="page2 center" id='page'>
+      <div class="flyout" id ="flyout">
+        <ul class="nav-fly">
+          <li id="nav-li-1"><i class="fa fa-bars" aria-hidden="true"></i></li>
+          <li id="nav-li-2"><i class="fa fa-user" aria-hidden="true"></i></li>
+          <li id="nav-li-3"><i class="fa fa-list" aria-hidden="true"></i></li>
+        </ul>
+      </div>
         <div id="content" class="center">
           <p class="flexfill center">WARNING! Username is case sensitive</p>
           <form id="searchUser" class="i-flex flexfill">

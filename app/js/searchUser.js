@@ -1,22 +1,15 @@
+var result =0;
 function searchUser(){
 	form_data = formData('searchUser')
-	console.dir( form_data)
 	var theUrl = ("http://ow-api.herokuapp.com/profile/" +form_data.platform+"/" + form_data.region+ "/"+ form_data.user+"-"+form_data.tag);
 	$.ajax({
         url: theUrl,
-        cache: false,
         type: "GET",
         dataType: "JSON",
+        async: false,
         success: function (data)
         {
             //If URL resolves, player exists. Safe to move away from search screen. 
-            //Return the data and handle the transition
-            console.log('inside SearchUser')
-            console.log(data)
-      
-            ipcRenderer.send('toDash','')
-            
-
         	if ($('#content').hasClass('center')){
 				$('#content').toggleClass('center')
 			}
@@ -39,10 +32,9 @@ function searchUser(){
 				//default :
 					//$('#header-info').append("<div id='regPlat'><img src='./img/pc.png' height='64' width='64'></div>")
 			//}
-			//console.log(data);
 
         	//})
-                 return data
+
 
         }, 
         error: function (jqXHR, exception)
@@ -69,5 +61,17 @@ function searchUser(){
                 alert('Uncaught Error.\n' + jqXHR.responseText);
             }//END IF JQXHR.STATUS === 0
         }//END FUNCTION ERROR
+    }).done(function(data)
+    {
+        
+        console.log(data)
+
+        //Return the data and handle the transition once the ajax call is done.  
+           
+        var ipcRenderer =require('electron').ipcRenderer
+        ipcRenderer.send('toDash','')
+        return data
+            
     });
+    
 }

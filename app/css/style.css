@@ -22,6 +22,7 @@ ul {
 	background-color: #f1f1f1;
 }
 
+
 /**Flyout Navigation**/
 	.nav-fly{
 		padding: 0 20px;
@@ -70,12 +71,26 @@ ul {
 	bottom:0;
 	right:0;
 	left:0;
+}
 
+.page2{
+	display:flex;
+	height:100%;
+	position:absolute;
+	top:0;
+	bottom:0;
+	right:0;
+	left:0;
+	overflow:hidden;
 }
 
 .content{
 	height:100%;
 
+}
+
+#content{
+	flex-grow:1;
 }
 
 span.light{

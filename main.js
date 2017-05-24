@@ -7,7 +7,8 @@ const path = require('path')
 const url = require('url')
 //var localStorage = require('localStorage')
 var firebase = require("firebase")
-const{ipcMain}=require('electron')
+const{ipcMain} =require('electron')
+const {ipcRenderer} = require('electron')
 
 
 // Keep a global reference of the window object, if you don't, the window will
@@ -103,6 +104,7 @@ ipcMain.on('userAuth', (event, arg)=>{
 })
 
 ipcMain.on('toDash', (event, arg) =>{
+  log('toDash Recieved')
   dashboard()
 })
 

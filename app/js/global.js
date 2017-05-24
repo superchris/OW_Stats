@@ -3,20 +3,14 @@ var navLogin= $('#navLogin');
 var navRegister = $('#navRegister');
 var page = $('#page');
 var createAcc =$('#createAcc');
-//var formData = require('././js/formData.js')
-
-//var searchUser = require('../js/searchUser.js')
 
 
+function init(){//Functions to run on init and event listeners
 
-function init(){
-
-
-	
+		loadHeroes()
+	//Search Users Event Listener
 	document.getElementById('search').addEventListener('click', function(){
 		var test = searchUser()
-		console.log(test)
-
 		//Resize Window to last configuration
 		var winBounds = window.localStorage.getItem('winBounds')
 		if( winBounds = null){
@@ -28,10 +22,28 @@ function init(){
 			var temp = JSON.parse(winBounds)
 			require('electron').remote.getCurrentWindow().setBounds(temp)
 		}
+		console.log(test)
+	})
 
+
+	//Expand and contract the Flyout menu
+	document.getElementById('nav-li-1').addEventListener('click', function(){
+		console.log('1')
+	})
+
+	//Player Search
+	document.getElementById('nav-li-2').addEventListener('click', function(){
+		console.log('2')
+	})
+
+	//Navigate to list of Character information
+	document.getElementById('nav-li-3').addEventListener('click', function(){
+		console.log('3')
+		page.load('./pages/heroes.html #content')
 
 	})
 
+	//Before the window is closed, save the window bounds
 	window.onbeforeunload = (function(){
 		window.localStorage.setItem('winBounds', JSON.stringify(require('electron').remote.getCurrentWindow().getBounds()))
 	})
