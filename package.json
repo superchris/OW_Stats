@@ -1,0 +1,20 @@
+{
+  "name": "OW_Stats",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Tiko Nelson",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^1.6.2",
+    "jquery": "^3.2.1"
+  },
+  "dependencies": {
+    "electron-json-storage": "^3.0.5",
+    "firebase": "^3.7.5",
+    "localstorage": "^0.1.0"
+  }
+}

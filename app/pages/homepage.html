@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Overwatch Personal Stats</title>
+    <link href="../css/style.css" rel="stylesheet">
+    <script>window.$ = window.jQuery = require('jquery');</script>
+   </head>
+  <body>
+<div id="content" class="i-flex">
+	<div class="page" id="page">
+		<div class='header' id='header'>
+			<div>
+				<div class="header-box i-flex" id="header-box">
+					<div class="header-avatar" id="header-avatar">
+
+					</div>
+					<div id="header-info">
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class='body' id='body'>
+		</div>
+		<div class='footer' id='footer'>
+		</div>
+	</div>
+</div>
+ </body>
+  <script src="https://www.gstatic.com/firebasejs/3.7.6/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyAUUx2t3Is3OTrd4nvvO2To9h6B0SMeNWc",
+      authDomain: "dubtel-webapp.firebaseapp.com",
+      databaseURL: "https://dubtel-webapp.firebaseio.com",
+      projectId: "dubtel-webapp",
+      storageBucket: "dubtel-webapp.appspot.com",
+      messagingSenderId: "322866462913"
+    };
+    firebase.initializeApp(config);
+
+    function authCheck(){
+      firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+          console.log(user)
+        } else {
+          console.log('No one is signed in.')
+        }
+      })
+    }
+
+
+  </script>
+    <!-- Last Call Scripts -->
+
+</html>
+
