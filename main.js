@@ -94,13 +94,16 @@ app.on('activate', function () {
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
 ipcMain.on('userAuth', (event, arg)=>{
-
   if (arg != null){
     event.sender.send("Firebase UID Recieved")
   }
   else{
     console.log("arg was null")
   }
+})
+
+ipcMain.on('toDash', (event, arg) =>{
+  dashboard()
 })
 
 

@@ -9,8 +9,14 @@ function searchUser(){
         dataType: "JSON",
         success: function (data)
         {
-            return data
+            //If URL resolves, player exists. Safe to move away from search screen. 
+            //Return the data and handle the transition
+            console.log('inside SearchUser')
             console.log(data)
+      
+            ipcRenderer.send('toDash','')
+            
+
         	if ($('#content').hasClass('center')){
 				$('#content').toggleClass('center')
 			}
@@ -19,8 +25,8 @@ function searchUser(){
 			//$('#header-avatar').attr("src", data.portrait);
 			//$('#header-avatar').append("<img src='" +data.portrait+"'>");
 
-			$('#header-info').append("<h1>"+ data.username + "#" 
-				+ form_data.tag + "</h1>");
+			//$('#header-info').append("<h1>"+ data.username + "#" 
+			//	+ form_data.tag + "</h1>");
 
 			//A function to determine which console was selected and output to the UI an appropriate image
 			//switch(form_data.platform){
@@ -35,8 +41,9 @@ function searchUser(){
 			//}
 			//console.log(data);
 
-        	})
-           
+        	//})
+                 return data
+
         }, 
         error: function (jqXHR, exception)
         {
