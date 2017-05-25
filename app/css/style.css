@@ -19,6 +19,7 @@ header {
 ul {
 	list-style-type: none;
 	margin:0;
+	padding:0;
 	background-color: #f1f1f1;
 }
 
@@ -46,12 +47,45 @@ ul {
 	.nav-fly>li>i
 
 
-.fa-navicon:before, 
-.fa-reorder:before, 
-.fa-bars:before,
-.fa-user:before,
-.fa-list:before
- {
+/*Heroes Section*/
+	#heroList{
+		list-style-type:none;
+		padding: 10px !important;
+		margin:0;
+		padding:0;
+	}
+
+	.hero{
+		padding:10px;
+		cursor:pointer;
+	}
+
+	.heroData{
+		height:100%;
+		width:100%;
+
+	}
+
+	.of-y{
+		overflow-y: auto
+	}
+
+	.info-container{
+		flex-grow: 1;
+		padding:0 10px;
+	}
+	.list-container{
+		width:150px;
+		overflow-x:hidden;
+		background-color: #ccc
+	}
+
+	.fa-navicon:before, 
+	.fa-reorder:before, 
+	.fa-bars:before,
+	.fa-user:before,
+	.fa-list:before
+	 {
 		padding-right:10px;
 	}
 

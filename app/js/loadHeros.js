@@ -18,7 +18,6 @@ function loadHeroes(){
 	else
 	{
 		$.getJSON('https://overwatch-api.net/api/v1/hero', function( json){
-			console.log()
 			$.each(json.data.forEach(function(i, data){
 				Object.assign(heroData, data)
 				$('heroes').append('<li>'+ data.name +'</li>')

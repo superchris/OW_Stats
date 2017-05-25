@@ -34,18 +34,38 @@ function init(){//Functions to run on init and event listeners
 	//Expand and contract the Flyout menu
 	document.getElementById('nav-li-1').addEventListener('click', function(){
 		console.log('1')
-		content.load('./index.html #content')
+		content.load('./index.html #content-wrapper')
+		$('.navh4').removeClass('active')
+		$(this).addClass('active')
+
 	})
 
 	//Navigate to player search page.
 	document.getElementById('nav-li-2').addEventListener('click', function(){
 		console.log('2')
+		$('.navh4').removeClass('active')
+		$(this).addClass('active')
+
 	})
 
 	//Navigate to static list of Character information
 	document.getElementById('nav-li-3').addEventListener('click', function(){
 		console.log('3')
-		content.load('./pages/heroes.html #content')
+		$('.navh4').removeClass('active')
+		$(this).addClass('active')
+		content.load('./pages/heroes.html #heroData', function(){
+			//Loading Hero Data to UI. Thinking of using react for this...
+			heroData.forEach(function(i){
+				$('#heroList').append('<li class="hero">'+ i.name+'</li>')
+			})
+			//Set Event Listener for the loaded list.
+			$('ul li').click(function(){
+				heroPage(heroData[$(this).index()])
+				$('ul li').removeClass('active')
+				$(this).addClass('active')
+			})
+		})
+
 
 
 	})
@@ -65,9 +85,11 @@ function init(){//Functions to run on init and event listeners
 document.onreadystatechange = function(){
 	console.log("Document State: "+ document.readyState)
 	if(document.readyState=="complete"){
-		
+
 		//Parse and load character information synchronously early.
 		heroData = loadHeroes()
+
+
 		//Load Flyout
 		$('#flyout').load('./pages/flyout.html #nav-fly', function(){
 			//call init() after load is completed
@@ -118,8 +140,6 @@ function login(){
 		
 	});
 }
-
-
 
 
 

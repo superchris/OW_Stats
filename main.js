@@ -9,7 +9,8 @@ const url = require('url')
 var firebase = require("firebase")
 const{ipcMain} =require('electron')
 const {ipcRenderer} = require('electron')
-
+var React = require('react');
+var ReactDOM = require('react-dom');
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.

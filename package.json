@@ -10,7 +10,8 @@
   "license": "MIT",
   "devDependencies": {
     "electron": "^1.6.2",
-    "jquery": "^3.2.1"
+    "jquery": "^3.2.1",
+    "react": "^15.5.4"
   },
   "dependencies": {
     "electron-json-storage": "^3.0.5",

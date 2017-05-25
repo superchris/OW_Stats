@@ -9,7 +9,7 @@
     <script src="./js/searchUser.js"></script>
     <script src="./js/loadHeros.js"></script>
     <script src="./js/flyout.js"></script>
-
+    <script src="./js/heroPage.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -28,54 +28,31 @@
       <div class="flyout" id ="flyout">
         
       </div>
-        <div id="content" class="center">
-          <p class="flexfill center">WARNING! Username is case sensitive</p>
-          <form id="searchUser" class="i-flex flexfill">
-              <input type="text" name="User" placeholder="Username" id="user" required>
-              <input type="text" name="tag" placeholder="Battletag ex. 1986" id="tag">
-              <select name="platform" form="searchUser" class="" id="platform" required>
-                <option value="pc">PC</option>
-                <option value="xbl">XBL</option>
-                <option value="psn">PSN</option>
-              </select>
-              <select name="region" form="searchUser" class="" id="region" required>
-                <option value="us">US</option>
-                <option value="eu">EU</option>
-                <option value="kr">KR</option>
-                <option value="cn">CN</option>
-              </select>
-            <input type ="button" value="Search User" class="submitBtn" id="search"/>
-          </form>
-
+        <div id="content">
+          <div id="content-wrapper" class="center">
+            <p class="flexfill center">WARNING! Username is case sensitive</p>
+            <form id="searchUser" class="i-flex flexfill">
+                <input type="text" name="User" placeholder="Username" id="user" required>
+                <input type="text" name="tag" placeholder="Battletag ex. 1986" id="tag">
+                <select name="platform" form="searchUser" class="" id="platform" required>
+                  <option value="pc">PC</option>
+                  <option value="xbl">XBL</option>
+                  <option value="psn">PSN</option>
+                </select>
+                <select name="region" form="searchUser" class="" id="region" required>
+                  <option value="us">US</option>
+                  <option value="eu">EU</option>
+                  <option value="kr">KR</option>
+                  <option value="cn">CN</option>
+                </select>
+              <input type ="button" value="Search User" class="submitBtn" id="search"/>
+            </form>
+          </div>
         </div>
       </div>
     </div>
   </body>
-  <script src="https://www.gstatic.com/firebasejs/3.7.6/firebase.js"></script>
-  <script>
-    // Initialize Firebase
-    var config = {
-      apiKey: "AIzaSyAUUx2t3Is3OTrd4nvvO2To9h6B0SMeNWc",
-      authDomain: "dubtel-webapp.firebaseapp.com",
-      databaseURL: "https://dubtel-webapp.firebaseio.com",
-      projectId: "dubtel-webapp",
-      storageBucket: "dubtel-webapp.appspot.com",
-      messagingSenderId: "322866462913"
-    };
-    firebase.initializeApp(config);
-
-    function authCheck(){
-      firebase.auth().onAuthStateChanged(function(user) {
-        if (user) {
-          console.log(user)
-        } else {
-          console.log('No one is signed in.')
-        }
-      })
-    }
-
-
-  </script>
+ 
     <!-- Last Call Scripts -->
     <script>var $ = require('jquery')</script>
      <script src="./js/global.js"></script>
