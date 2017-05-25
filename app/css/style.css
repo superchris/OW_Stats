@@ -40,7 +40,20 @@ ul {
 		padding: 10px 0;
 		text-decoration: none;
 		cursor:pointer;
-			}
+		display:block;
+	}
+
+	.nav-fly>li>i
+
+
+.fa-navicon:before, 
+.fa-reorder:before, 
+.fa-bars:before,
+.fa-user:before,
+.fa-list:before
+ {
+		padding-right:10px;
+	}
 
 	.navh4{
 		font-size:16px;

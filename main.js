@@ -17,9 +17,9 @@ const {ipcRenderer} = require('electron')
 
 function createWindow () {
   // Create the browser window.
-
+  
  
-  loginWin = new BrowserWindow({width:570, height:570, x:0, y:0, parent:mainWindow})
+  loginWin = new BrowserWindow({width:570, height:570, x:0, y:0, show:false})
   
   // and load the index.html of the app.
   loginWin.loadURL(url.format({
@@ -106,6 +106,11 @@ ipcMain.on('userAuth', (event, arg)=>{
 ipcMain.on('toDash', (event, arg) =>{
   log('toDash Recieved')
   dashboard()
+})
+
+ipcMain.on('ls', (event, arg) =>{
+  loginWin.setBounds(arg)
+  loginWin.show()
 })
 
 

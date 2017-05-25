@@ -2,14 +2,19 @@
 var navLogin= $('#navLogin');
 var navRegister = $('#navRegister');
 var page = $('#page');
+var content = $('#content');
 var createAcc =$('#createAcc');
 
+var heroData=0;
 
 function init(){//Functions to run on init and event listeners
 
-		loadHeroes()
+
+	
 	//Search Users Event Listener
 	document.getElementById('search').addEventListener('click', function(){
+
+		//Look-up User Informatio
 		var test = searchUser()
 		//Resize Window to last configuration
 		var winBounds = window.localStorage.getItem('winBounds')
@@ -29,23 +34,30 @@ function init(){//Functions to run on init and event listeners
 	//Expand and contract the Flyout menu
 	document.getElementById('nav-li-1').addEventListener('click', function(){
 		console.log('1')
+		content.load('./index.html #content')
 	})
 
-	//Player Search
+	//Navigate to player search page.
 	document.getElementById('nav-li-2').addEventListener('click', function(){
 		console.log('2')
 	})
 
-	//Navigate to list of Character information
+	//Navigate to static list of Character information
 	document.getElementById('nav-li-3').addEventListener('click', function(){
 		console.log('3')
-		page.load('./pages/heroes.html #content')
+		content.load('./pages/heroes.html #content')
+
 
 	})
 
-	//Before the window is closed, save the window bounds
+	//Before the window is closed, log session persist values
 	window.onbeforeunload = (function(){
+		//Save window bounds
+		//------------------------Change from get Current Window if I'm going to use child windows--------------------------
 		window.localStorage.setItem('winBounds', JSON.stringify(require('electron').remote.getCurrentWindow().getBounds()))
+		//Save user data (Searched battle tag)
+		//Heros list saved in loadHeroes. 
+
 	})
 }
 
@@ -53,7 +65,15 @@ function init(){//Functions to run on init and event listeners
 document.onreadystatechange = function(){
 	console.log("Document State: "+ document.readyState)
 	if(document.readyState=="complete"){
-		init();
+		
+		//Parse and load character information synchronously early.
+		heroData = loadHeroes()
+		//Load Flyout
+		$('#flyout').load('./pages/flyout.html #nav-fly', function(){
+			//call init() after load is completed
+			init();
+		})
+		
 	}
 }
 
@@ -67,8 +87,6 @@ function login(){
 	
 	firebase.auth().signInWithEmailAndPassword(email, pword)
 		.then(function(success){
-			//page.load("../app/pages/homepage.html #content");
-			//console.log("Sending Firebase UID");
 			var user = firebase.auth().currentUser;
 			var name, email, photoUrl, uid, emailVerified;
 
