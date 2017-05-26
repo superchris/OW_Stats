@@ -35,7 +35,7 @@ function init(){//Functions to run on init and event listeners
 	document.getElementById('nav-li-1').addEventListener('click', function(){
 		console.log('1')
 		content.load('./index.html #content-wrapper')
-		$('.navh4').removeClass('active')
+		$('.nav-fly> .navh4').removeClass('active')
 		$(this).addClass('active')
 
 	})
@@ -43,7 +43,7 @@ function init(){//Functions to run on init and event listeners
 	//Navigate to player search page.
 	document.getElementById('nav-li-2').addEventListener('click', function(){
 		console.log('2')
-		$('.navh4').removeClass('active')
+		$('.nav-fly >.navh4').removeClass('active')
 		$(this).addClass('active')
 
 	})
@@ -51,17 +51,23 @@ function init(){//Functions to run on init and event listeners
 	//Navigate to static list of Character information
 	document.getElementById('nav-li-3').addEventListener('click', function(){
 		console.log('3')
-		$('.navh4').removeClass('active')
+
+		$('.nav-fly > .navh4').removeClass('active')
 		$(this).addClass('active')
+
 		content.load('./pages/heroes.html #heroData', function(){
 			//Loading Hero Data to UI. Thinking of using react for this...
 			heroData.forEach(function(i){
 				$('#heroList').append('<li class="hero">'+ i.name+'</li>')
 			})
+			heroPage(heroData[0])
+			$('#heroList li:first').addClass('active')
+			
+
 			//Set Event Listener for the loaded list.
-			$('ul li').click(function(){
+			$('li.hero').click(function(){
 				heroPage(heroData[$(this).index()])
-				$('ul li').removeClass('active')
+				$('li.hero').removeClass('active')
 				$(this).addClass('active')
 			})
 		})

@@ -8,7 +8,7 @@ body {
 }
 
 body {
-	font-family: -apple-system, 'Helvetica Neue', Helvetica, sans-serif;
+	font-family: 'Roboto Condensed', 'Helvetica Neue', Helvetica, sans-serif !important;
 }
 
 header {
@@ -23,10 +23,14 @@ ul {
 	background-color: #f1f1f1;
 }
 
+h5{
+	margin-top:0 !important;
+	font-style: italic
+}
+
 
 /**Flyout Navigation**/
 	.nav-fly{
-		padding: 0 20px;
 		float:left;
 		/*position:absolute;*/
 		height:100%;
@@ -38,21 +42,23 @@ ul {
 	}
 
 	.nav-fly li{
-		padding: 10px 0;
+		padding: 10px 20px;
 		text-decoration: none;
 		cursor:pointer;
 		display:block;
 	}
 
-	.nav-fly>li>i
+	.nav-fly>li>i{}
+
 
 
 /*Heroes Section*/
 	#heroList{
 		list-style-type:none;
-		padding: 10px !important;
 		margin:0;
 		padding:0;
+		background-color: #141414;
+		color: #eee;
 	}
 
 	.hero{
@@ -60,24 +66,48 @@ ul {
 		cursor:pointer;
 	}
 
+	.hero:hover, 
+	.active{
+		background-color: #f9a01a
+
+	}
+
 	.heroData{
 		height:100%;
 		width:100%;
+	}
 
+	#heroName{
+		padding-right: 10px;
 	}
 
 	.of-y{
 		overflow-y: auto
 	}
 
+	.bl{
+		align-items:baseline;
+		width:100%;
+	}
+
+	.hero-header{
+		align-items:center;
+		justify-content:space-between;
+		width:100%;
+		display:inline-flex;
+	}
+	#difficulty>i{
+		padding-right:10px;
+	}
+
 	.info-container{
 		flex-grow: 1;
 		padding:0 10px;
 	}
+
 	.list-container{
-		width:150px;
+		min-width:150px;
 		overflow-x:hidden;
-		background-color: #ccc
 	}
 
 	.fa-navicon:before, 
