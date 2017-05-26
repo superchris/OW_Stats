@@ -48,8 +48,6 @@ h5{
 		display:block;
 	}
 
-	.nav-fly>li>i{}
-
 
 
 /*Heroes Section*/
@@ -77,7 +75,7 @@ h5{
 		width:100%;
 	}
 
-	#heroName{
+	.pr10{
 		padding-right: 10px;
 	}
 
@@ -103,6 +101,7 @@ h5{
 	.info-container{
 		flex-grow: 1;
 		padding:0 10px;
+		display:flex;
 	}
 
 	.list-container{
