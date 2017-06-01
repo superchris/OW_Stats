@@ -9,11 +9,8 @@ var heroData=0;
 
 function init(){//Functions to run on init and event listeners
 
-
-	
-	//Search Users Event Listener
-	document.getElementById('search').addEventListener('click', function(){
-
+	function searchBtn(){
+		console.log('search clicked')
 		//Look-up User Informatio
 		var test = searchUser()
 		//Resize Window to last configuration
@@ -27,14 +24,21 @@ function init(){//Functions to run on init and event listeners
 			var temp = JSON.parse(winBounds)
 			require('electron').remote.getCurrentWindow().setBounds(temp)
 		}
-		console.log(test)
-	})
+		
+	}
+
+
+	//Search Users Event Listener
+	document.getElementById('search').addEventListener('click', searchBtn)
 
 
 	//Expand and contract the Flyout menu
 	document.getElementById('nav-li-1').addEventListener('click', function(){
 		console.log('1')
-		content.load('./index.html #content-wrapper')
+
+		content.load('./index.html #content-wrapper', function(){
+			document.getElementById('search').addEventListener('click', searchBtn)
+		})
 		$('.nav-fly> .navh4').removeClass('active')
 		$(this).addClass('active')
 
@@ -62,7 +66,7 @@ function init(){//Functions to run on init and event listeners
 			})
 			heroPage(heroData[0])
 			$('#heroList li:first').addClass('active')
-			
+
 
 			//Set Event Listener for the loaded list.
 			$('li.hero').click(function(){
@@ -82,7 +86,7 @@ function init(){//Functions to run on init and event listeners
 		//------------------------Change from get Current Window if I'm going to use child windows--------------------------
 		window.localStorage.setItem('winBounds', JSON.stringify(require('electron').remote.getCurrentWindow().getBounds()))
 		//Save user data (Searched battle tag)
-		//Heros list saved in loadHeroes. 
+		//Heros list saved in loadHeroes.
 
 	})
 }
@@ -101,7 +105,7 @@ document.onreadystatechange = function(){
 			//call init() after load is completed
 			init();
 		})
-		
+
 	}
 }
 
@@ -112,7 +116,7 @@ function login(){
 	 var email = submitted_form.elements[0].value;
 	 var pword = submitted_form.elements[1].value;
 
-	
+
 	firebase.auth().signInWithEmailAndPassword(email, pword)
 		.then(function(success){
 			var user = firebase.auth().currentUser;
@@ -143,11 +147,6 @@ function login(){
 	  	var errorCode = error.code;
 	  	var errorMessage = error.message;
 		console.log(error);
-		
+
 	});
 }
-
-
-
-
-

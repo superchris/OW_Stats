@@ -1,10 +1,9 @@
-var heroData=[]
-
 function loadHeroes(){
 	//Check Local Storage for array of heroes
 	var heroData = JSON.parse(localStorage.getItem('heroes'))
 	//If the array of heroes is empty, i.e. not in local storage, populate an array and set it there.
 	if (heroData===null){
+		heroData=[]
 		$.getJSON('https://overwatch-api.net/api/v1/hero', function(json){
 			console.log('Hero Data is Empty. Pushing data from API.')
 

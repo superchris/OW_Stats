@@ -18,10 +18,10 @@ var ReactDOM = require('react-dom');
 
 function createWindow () {
   // Create the browser window.
-  
- 
+
+
   loginWin = new BrowserWindow({width:570, height:570, x:0, y:0, show:false})
-  
+
   // and load the index.html of the app.
   loginWin.loadURL(url.format({
     pathname: path.join(__dirname, './app/index.html'),
@@ -50,7 +50,7 @@ function dashboard(){
     slashes: true
   }))
 
-  // Sets mainWindow bounds to localStorage 
+  // Sets mainWindow bounds to localStorage
   mainWindow.on('close', function(){
       //mainWindow.webContents.localStorage.setItem(mainWindow.getBounds())
 });
@@ -86,7 +86,7 @@ app.on('window-all-closed', function () {
 
 app.on('activate', function () {
   // On OS X it's common to re-create a window in the app when the
-  // dock icon is clicked and there are no other windows o 
+  // dock icon is clicked and there are no other windows o
 
   if (mainWindow === null) {
     createWindow()
@@ -106,7 +106,7 @@ ipcMain.on('userAuth', (event, arg)=>{
 
 ipcMain.on('toDash', (event, arg) =>{
   log('toDash Recieved')
-  dashboard()
+  //dashboard()
 })
 
 ipcMain.on('ls', (event, arg) =>{

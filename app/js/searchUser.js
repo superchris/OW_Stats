@@ -9,11 +9,12 @@ function searchUser(){
         async: false,
         success: function (data)
         {
-            //If URL resolves, player exists. Safe to move away from search screen. 
+					$('#searchResults').html(data.username)
+					  //If URL resolves, player exists. Safe to move away from search screen.
         	if ($('#content').hasClass('center')){
 				$('#content').toggleClass('center')
 			}
-        }, 
+        },
         error: function (jqXHR, exception)
         {
             if (jqXHR.status === 0)
@@ -40,14 +41,14 @@ function searchUser(){
         }//END FUNCTION ERROR
     }).done(function(data)
     {
-        
+
         console.log(data)
 
-        //Return the data and handle the transition once the ajax call is done.   
+        //Return the data and handle the transition once the ajax call is done.
         var ipcRenderer =require('electron').ipcRenderer
         ipcRenderer.send('toDash','')
         return data
-            
+
     });
-    
+
 }
